@@ -17,4 +17,9 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::post('register', 'Auth\RegisterController');
+Route::namespace('Auth')->group(function() {
+    Route::post('register', 'RegisterController');
+    Route::post('login', 'LoginController');
+});
+
+Route::get('user', 'UserController');
